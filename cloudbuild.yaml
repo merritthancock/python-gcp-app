@@ -1,11 +1,11 @@
 steps:
-  # Step 1: Build the Docker image using the backend folder context
+  # Step 1: Build the Docker image using the root directory context
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'build', 
       '-t', '$_AR_HOSTNAME/$PROJECT_ID/$_AR_REPOSITORY/$_SERVICE_NAME:$COMMIT_SHA', 
       '-f', 'backend/Dockerfile', 
-      './backend'
+      '.'
     ]
     id: 'Build'
 
